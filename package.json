@@ -2,15 +2,13 @@
   "name": "rbmq-azure-function-webhook",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc",
-    "start": "func start",
-    "deploy": "npm run build && func azure functionapp publish <YOUR_FUNCTION_APP_NAME>"
+    "build": "tsc"
   },
   "dependencies": {
-    "@azure/functions": "^4.0.0",
     "amqplib": "^0.10.3"
   },
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.4.0",
+    "@azure/functions": "^4.0.0"
   }
 }
