@@ -45,4 +45,23 @@ const timerTrigger: AzureFunction = async function (context: Context, myTimer: a
     }
 };
 
+
+const { app } = require('@azure/functions');
+
+app.http('helloHttp', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous', // Set to 'function' or 'admin' for secure access
+    handler: async (request, context) => {
+        context.log('Processing HTTP request for helloHttp.');
+
+        // Example: Get query parameter or body
+        const name = request.query.get('name') || (await request.text()) || 'World';
+
+        return {
+            status: 200,
+            body: `Hello, ${name}! Welcome to Azure Functions!`
+        };
+    }
+});
+
 export default timerTrigger;
